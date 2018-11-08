@@ -32,7 +32,7 @@ set(PROJECT_LANGUAGES "C")
 
 # Where are stored the project configuration files
 # relative to the root project directory
-set(PROJECT_CMAKE_CONF_DIR "conf.d/cmake")
+set(PROJECT_CMAKE_CONF_DIR "conf.d")
 
 # Which directories inspect to find CMakeLists.txt target files
 # set(PROJECT_SRC_DIR_PATTERN "*")
@@ -183,9 +183,6 @@ set(WIDGET_ENTRY_POINT config.xml)
 # Optional Extra global include path
 # -----------------------------------
 #set(EXTRA_INCLUDE_DIRS)
-
-# Fulup hotfix waiting for Romain to wakeup
-set(EXTRA_INCLUDE_DIRS /usr/include/lua5.3)
 
 # Optional extra libraries
 # -------------------------
