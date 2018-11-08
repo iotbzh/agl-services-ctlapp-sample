@@ -24,14 +24,15 @@ set(PROJECT_PRETTY_NAME "Provide Sample Interface with Homescreen service")
 set(PROJECT_DESCRIPTION "AGL sample control application service")
 set(PROJECT_URL "https://github.com/iotbzh/agl-services-ctlapp-sample")
 set(PROJECT_ICON "icon.png")
+set(PROJECT_VERSION 6.90)
 set(PROJECT_AUTHOR "Fulup Ar Foll")
 set(PROJECT_AUTHOR_MAIL "fulup@iot.bzh")
 set(PROJECT_LICENSE "APL2.0")
 set(PROJECT_LANGUAGES "C")
 
-# Where are stored default templates files from submodule or subtree app-templates in your project tree
+# Where are stored the project configuration files
 # relative to the root project directory
-set(PROJECT_APP_TEMPLATES_DIR "conf.d/app-templates")
+set(PROJECT_CMAKE_CONF_DIR "conf.d/cmake")
 
 # Which directories inspect to find CMakeLists.txt target files
 # set(PROJECT_SRC_DIR_PATTERN "*")
