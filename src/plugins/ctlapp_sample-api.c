@@ -37,9 +37,9 @@ CTLP_CAPI(ping, source, argsJ, eventJ)
     AFB_ReqSuccess(source->request, json_object_new_string("ctlapp_sample pong"), NULL);
     return 0;
 }
-
+/*
 CTLP_LUA2C(display, source, argsJ, responseJ)
 {
     
 }
-
+*/

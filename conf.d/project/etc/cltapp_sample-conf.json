@@ -12,7 +12,7 @@
     "spath": "./lib/plugins:./var",
     "libs": [
       "ctlapp_sample.ctlso",
-      "ctlapp_sample.lua"
+      "ctlapp_sample-api.lua"
     ]
   }],
 

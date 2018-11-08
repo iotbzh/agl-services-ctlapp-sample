@@ -65,6 +65,7 @@ set (PKG_REQUIRED_LIST
 	json-c
 	afb-daemon>=4.0
 	libmicrohttpd>=0.9.55
+	lua
 )
 
 # You can also consider to include libsystemd
@@ -131,8 +132,8 @@ set(INSTALL_PREFIX $ENV{HOME}/opt CACHE PATH "INSTALL PREFIX PATH")
 # CACHE STRING "Compilation flags for RELEASE build type.")
 
 set(CONTROL_SUPPORT_LUA 1)
-add_definitions(-DCONTROL_PLUGIN_PATH="${CMAKE_BINARY_DIR}/package/lib/plugins:${CMAKE_BINARY_DIR}/package/var:${INSTALL_PREFIX}/${PROJECT_NAME}/lib/plugins")
-add_definitions(-DCONTROL_CONFIG_PATH="${CMAKE_BINARY_DIR}/package/etc:${INSTALL_PREFIX}/${PROJECT_NAME}/etc")
+add_definitions(-DCONTROL_PLUGIN_PATH="${CMAKE_BINARY_DIR}/package/lib/plugins:${CMAKE_BINARY_DIR}/package/var:${INSTALL_PREFIX}/${PROJECT_NAME}/lib/plugins:/usr/libexec/agl/agl-services-ctlapp-sample/lib/plugins")
+add_definitions(-DCONTROL_CONFIG_PATH="${CMAKE_BINARY_DIR}/package/etc:${INSTALL_PREFIX}/${PROJECT_NAME}/etc:/usr/libexec/agl/agl-services-ctlapp-sample/etc")
 add_definitions(-DCTL_PLUGIN_MAGIC=1286576532)
 add_definitions(-DAFB_BINDING_VERSION=3)
 
