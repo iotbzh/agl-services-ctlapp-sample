@@ -21,14 +21,16 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <assert.h>
 
 #include "ctl-plugin.h"
 #include "wrap-json.h"
 
-CTLP_CAPI_REGISTER("ctlapp_sample");
+CTLP_LUA_REGISTER("ctlapp_sample");
 
 CTLP_ONLOAD(plugin, ret)
 {
+    AFB_ApiNotice (plugin->api, "ctlapp (control appplication) plugin loaded"); 
     return 0;
 }
 
@@ -37,9 +39,36 @@ CTLP_CAPI(ping, source, argsJ, eventJ)
     AFB_ReqSuccess(source->request, json_object_new_string("ctlapp_sample pong"), NULL);
     return 0;
 }
-/*
+
 CTLP_LUA2C(display, source, argsJ, responseJ)
 {
+    int err, status;
+    char *application, *version, *error, *info;
+    char appid[128];
     
+    err = wrap_json_unpack(argsJ, "{ss ss !}", "application", &application, "version", &version);
+    if (err) {
+       AFB_ApiError (source->api, "display invalid argsJ=%s", json_object_get_string(argsJ)); 
+       goto OnErrorExit;
+    }
+
+    status = snprintf (appid, sizeof(appid), "%s@%s", application, version);
+    assert (status < sizeof(appid));
+    
+    err = AFB_ApiSync(source->api, "afm_main", "start", json_object_new_string(appid), responseJ, &error, &info);
+    if (err) { 
+       AFB_ApiError (source->api, "display fail afm_main start appid=%s", appid); 
+       goto OnErrorExit;
+    }
+
+    err = AFB_ApiSync(source->api, "homescreen", "tap_shortcut", json_object_new_string(application), responseJ, &error, &info);
+    if (err) {
+       AFB_ApiError (source->api, "display fail afm_main start appid=%s", application); 
+       goto OnErrorExit;
+    }
+
+    return 0;
+
+OnErrorExit:
+    return 1;
 }
-*/
