@@ -3,13 +3,12 @@
   "metadata": {
     "uid": "ctlapp_sample",
     "version": "1.0",
-    "api": "ctlapp",
+    "api": "agl_services_ctlapp_sample",
     "info": "ctlapp_sample service service to interface with homescreen & application framework"
   },
   "plugins": [{
     "uid": "ctlapp_sample",
     "info": "Plugin to handle interface with ctlapp_sample_app",
-    "spath": "./lib/plugins:./var",
     "libs": [
       "ctlapp_sample.ctlso",
       "ctlapp_sample-api.lua"

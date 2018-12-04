@@ -82,6 +82,10 @@ function callbinder(api, verb, query) {
     });
 };
 
+function gettext(id) {
+  return document.getElementById(id).value;
+}
+
 //**********************************************
 // Init - establish Websocket connection
 //**********************************************
@@ -89,7 +93,7 @@ function init(elemID, api, verb, query) {
 
   function onopen() {
     // Request initial authorization
-    callbinder('ctlapp_sample', 'auth', '');
+    callbinder('agl_services_ctlapp_sample', 'auth', '');
 
     document.getElementById("main").style.visibility = "visible";
     document.getElementById("connected").innerHTML = "Binder WS Active";

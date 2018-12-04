@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>XDS data collector binding Test</title>
+    <title>CTLAPP SAMPLE</title>
     <link rel="stylesheet" href="iotbzh-Binding.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <script type="text/javascript" src="AFB-websock.js"></script>
@@ -12,7 +12,7 @@
 
     <img src="assets/iot-bzh-logo-small.png">
 
-    <h1>XDS data collector prototype Test</h1>
+    <h1>CTLAPP SAMPLE</h1>
 
     <button id="connected" onclick="init()">Binder WS Fail</button>
     <button id="monitoring" onclick="window.open('/monitoring/monitor.html','_monitor_ctl')">Debug/Monitoring</a>
@@ -22,10 +22,24 @@
     <br>
 
     <div>
-        <button onclick="callbinder('ctlapp_sample','get-temperature' ,{});">Get Temperature</button>
-        <button onclick="callbinder('ctlapp_sample','set-temperature-zone1' , {temperature: 10});">Set Temperature zone 1</button>
-        <button onclick="callbinder('ctlapp_sample','set-temperature-zone2' , {temperature: 20});">Set Temperature zone 2</button>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'launcher'});">Launcher</button>
+        <br>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'mediaplayer'});">Mediaplayer</button>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'radio'});">Radio</button>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'dashboard'});">Dashboard</button>
+        <br>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'navigation'});">Navigation</button>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'hvac'});">HVAC</button>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'poi'});">POI</button>
+        <br>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'mixer'});">Mixer</button>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'settings'});">Settings</button>
+	    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': 'phone'});">Phone</button>
     </div>
+
+    <br>
+    <input type="text" name="name" id="application_name"/>
+    <button onclick="callbinder('agl_services_ctlapp_sample','display', {'application': gettext('application_name')});">Display</button>
 
     <div id="main" style="visibility:hidden">
         <ol>
