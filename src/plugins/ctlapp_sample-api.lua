@@ -36,6 +36,30 @@ end
 
 function _evt_catcher_(source, action, event)
     AFB:notice(source, "RECV EVENT=%s", Dump_Table(event))
+    return 0
+end
+
+function _register_application_state_(source, args, query)
+    local err, response =AFB:servsync (source, "windowmanager", "registerActivityObserver", { target = query.application } )
+    if (err) then
+       AFB:fail(source, "ERROR: fail to subscribe registerActivityObserver %s@", query.application)
+       return 1
+   end
+
+   AFB:success(source, response)
+   return 0
+end
+
+function _get_application_state_(source, args, query)
+	AFB:notice(source, "_get_application_state_ query=%s", Dump_Table(query))
+    local err, response =AFB:servsync (source, "windowmanager", "getActivityStatus", { target = query.application } )
+    if (err) then
+       AFB:fail(source, "ERROR: fail to subscribe registerActivityObserver %s@", query.application)
+       return 1
+   end
+
+   AFB:success(source, response)
+   return 0
 end
 
 function _display_application_(source, args, query)
