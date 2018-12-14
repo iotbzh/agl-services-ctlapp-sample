@@ -39,7 +39,7 @@ set(PROJECT_CMAKE_CONF_DIR "conf.d")
 
 # Compilation Mode (DEBUG, RELEASE)
 # ----------------------------------
-set(BUILD_TYPE "DEBUG")
+set(BUILD_TYPE "RELEASE")
 #set(USE_EFENCE 1)
 
 # Kernel selection if needed. You can choose between a
@@ -63,9 +63,7 @@ set (gcc_minimal_version 4.9)
 # PKG_CONFIG required packages
 # -----------------------------
 set (PKG_REQUIRED_LIST
-	json-c
 	afb-daemon>=4.0
-	libmicrohttpd>=0.9.55
 	lua
 )
 

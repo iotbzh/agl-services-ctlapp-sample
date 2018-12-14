@@ -22,10 +22,6 @@ PROJECT_TARGET_ADD(agl_services_ctlapp_sample)
 		${TARGET_NAME}-binding.c
 	)
 
-    target_compile_options(${TARGET_NAME}
-        PUBLIC  -Wno-unused-variable
-    )
-
 	# Binder exposes a unique public entry point
 	SET_TARGET_PROPERTIES(${TARGET_NAME} PROPERTIES
 		PREFIX "afb-"
