@@ -6,17 +6,22 @@
   <description>@PROJECT_DESCRIPTION@</description>
   <author>@PROJECT_AUTHOR@ &lt;@PROJECT_AUTHOR_MAIL@&gt;</author>
   <license>@PROJECT_LICENSE@</license>
-  <feature name="urn:AGL:widget:provided-api">
-     <param name="agl_services_ctlapp_sample" value="ws" />
-  </feature>
+
   <feature name="urn:AGL:widget:required-binding">
-    <param name="lib/afb-agl_services_ctlapp_sample.so" value="local" />
+    <param name="ctlapp" value="extern" />
   </feature>
+
   <feature name="urn:AGL:widget:required-api">
     <param name="afm-main" value="ws" />
     <param name="homescreen" value="ws" />
     <param name="windowmanager" value="ws" />
   </feature>
+
+  <feature name="urn:AGL:widget:provided-api">
+    <param name="@API_NAME@" value="ws" />
+  </feature>
+
+
   <feature name="urn:AGL:widget:required-permission">
     <param name="urn:AGL:permission:afm:system:widget:start" value="required" />
     <param name="urn:AGL:permission::public:hidden" value="required" />

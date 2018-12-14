@@ -18,10 +18,10 @@
 
 # Project Info
 # ------------------
-set(PROJECT_NAME agl_services_ctlapp_sample)
-set(API_NAME afb-ctlapp_sample)
-set(PROJECT_PRETTY_NAME "Provide Sample Interface with Homescreen service")
-set(PROJECT_DESCRIPTION "AGL sample control application service")
+set(PROJECT_NAME agl-service-controller-sample)
+set(API_NAME ctlapp-sample)
+set(PROJECT_PRETTY_NAME "A generic Controller implementation")
+set(PROJECT_DESCRIPTION "Provide a generic controller binding")
 set(PROJECT_URL "https://github.com/iotbzh/agl-services-ctlapp-sample")
 set(PROJECT_ICON "icon.png")
 set(PROJECT_VERSION 6.90)

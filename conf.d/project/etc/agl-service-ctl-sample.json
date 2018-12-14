@@ -1,0 +1,44 @@
+{
+  "$schema": "http://iot.bzh/download/public/schema/json/ctl-schema.json",
+  "metadata": {
+    "uid": "ctl-plugin-sample",
+    "version": "1.0",
+    "api": "ctlapp-sample",
+    "info": "Generic Controller service for AFB"
+  },
+  "plugins": [{
+    "uid": "ctl-plugin-sample",
+    "info": "Plugin to handle interface with a controller",
+    "libs": [
+      "c-plugin-sample.ctlso",
+      "LUA-plugin-sample.lua"
+    ]
+  }],
+
+  "onload": [{
+    "uid": "ctl-plugin-sample/run_onload",
+    "action": "lua://ctl-plugin-sample#_run_onload_"
+  }],
+
+  "controls": [{
+    "uid": "ping",
+    "action": "plugin://ctl-plugin-sample#ping"
+  }, {
+    "uid": "display",
+    "action": "lua://ctl-plugin-sample#_display_application_"
+  }, {
+    "uid": "getApplicationState",
+    "action": "lua://ctl-plugin-sample#_get_application_state_"
+  }, {
+    "uid": "registerApplicationState",
+    "action": "lua://ctl-plugin-sample#_register_application_state_"
+  }],
+
+  "events": [{
+    "uid": "ctl-plugin-sample_event",
+    "action": "lua://ctl-plugin-sample#_evt_catcher_"
+  }, {
+    "uid": "windowmanager/statusChanged",
+    "action": "lua://ctl-plugin-sample#_evt_catcher_"
+  }]
+}
