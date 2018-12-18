@@ -9,7 +9,7 @@
 *.user
 *autobuild
 obj
-build
+build*
 bin
 docs_doxygen
 node_modules/
